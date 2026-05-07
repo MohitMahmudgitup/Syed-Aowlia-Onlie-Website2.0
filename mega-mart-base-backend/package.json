@@ -2,20 +2,21 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
-"scripts": {
-  "build": "tsc",
-  "start": "node dist/app/server.js",
-  "dev": "ts-node-dev --respawn --transpile-only src/app/server.ts",
-  "lint": "eslint --ext .js,.ts",
-  "lint:fix": "npm run lint --fix",
-  "prettier": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|json)\"",
-  "prettier:fix": "npx prettier --write src"
-},
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/app/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/app/server.ts",
+    "lint": "eslint --ext .js,.ts",
+    "lint:fix": "npm run lint --fix",
+    "prettier": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|json)\"",
+    "prettier:fix": "npx prettier --write src"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@google/genai": "^1.52.0",
     "axios": "^1.12.2",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",

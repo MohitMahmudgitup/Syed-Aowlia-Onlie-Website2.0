@@ -15,11 +15,11 @@ passport.use(
       clientSecret: config.GOOGLE_CLIENT_SECRET as string,
       callbackURL: config.GOOGLE_CALLBACK_URL as string,
     },
-    async (
+    async ( 
       accessToken: string,
       refreshToken: string,
-      profile: Profile,
-      done: VerifyCallback
+      profile: Profile, 
+      done: VerifyCallback 
     ) => {
       try {
         const email = profile.emails?.[0].value;

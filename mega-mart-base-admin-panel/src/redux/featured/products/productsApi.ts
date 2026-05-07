@@ -50,7 +50,7 @@ const productApi = baseApi.injectEndpoints({
         url: `/product/delete-product/${id}`,
         method: 'DELETE',
       }),
-      
+
       transformResponse: (response: { message: string }) => response,
     }),
 
@@ -60,6 +60,14 @@ const productApi = baseApi.injectEndpoints({
         method: 'GET',
       }),
       transformResponse: (response: { data: IProduct }) => response.data,
+    }),
+    generateAIDescription: builder.mutation<{ data: string }, { title: string }>({
+      query: (body) => ({
+        url: '/product/generate-ai',
+        method: 'POST',
+        body ,
+      }),
+      transformResponse: (response: { data: string }) => response,
     }),
   }),
 });
@@ -71,5 +79,6 @@ export const {
   useDeleteProductMutation,
   useUpdateProductMutation,
   useProductInventoryQuery,
-  useGetSingleEditProductQuery
+  useGetSingleEditProductQuery,
+  useGenerateAIDescriptionMutation,
 } = productApi;

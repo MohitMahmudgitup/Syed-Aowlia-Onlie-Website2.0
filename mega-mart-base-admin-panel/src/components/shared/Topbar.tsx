@@ -24,7 +24,7 @@ import { logoutUser, selectCurrentUser } from "@/redux/featured/auth/authSlice";
 import { useLogoutMutation } from "@/redux/featured/auth/authApi";
 import { signOut } from "next-auth/react";
 
-interface TopNavbarProps {
+type TopNavbarProps  = {
   isSidebarOpen: boolean;
   toggleSidebar: () => void;
 }

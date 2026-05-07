@@ -178,3 +178,22 @@ export const getCategory = catchAsync(async (req, res) => {
 });
 
 
+export const generateAI = catchAsync(async (req, res)=>{
+  const {title} = req.body;
+    if (!title) {
+    return sendResponse(res, {
+      success: false,
+      statusCode: 400,
+      message: 'Title is required!',
+      data: null,
+    });
+  }
+  console.log(title)
+  const result = await  productServices.generateAIserves(title);
+ sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "generate successfully!",
+    data: result,
+  });
+})

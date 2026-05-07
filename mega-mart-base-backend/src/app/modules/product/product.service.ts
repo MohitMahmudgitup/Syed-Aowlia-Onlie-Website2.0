@@ -8,6 +8,7 @@ import { ProductSearchableFields } from "./product.const";
 import { TProduct } from "./product.interface";
 import { ProductModel } from "./product.model";
 import { subCategoryModel } from "../subcategory/subcategory.model";
+import main from "../../config/geminiAI";
 
 const createProductOnDB = async (payload: TProduct) => {
   const result = await ProductModel.create(payload);
@@ -430,6 +431,13 @@ const getCategory = async () => {
 }; 
 
 
+const generateAIserves = async (title: string)=>{
+  const data = await main(title)
+  console.log(data)
+  return data;
+
+}
+
 export const productServices = {
   createProductOnDB,
   getSingleProductFromDB,
@@ -442,5 +450,6 @@ export const productServices = {
   NewArrivalsListData,
   productcollection,
   getSingleEditProductFromDB,
-  getCategory
+  getCategory,
+  generateAIserves
 };

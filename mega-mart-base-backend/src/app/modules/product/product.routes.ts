@@ -1,6 +1,6 @@
 import express from "express";
 import validateRequest from "../../middlewares/validateRequest";
-import { bestSellingProducts, createProduct, deleteProduct, getAllProduct, getProductsByCategoryandsubcategory,getSingleEditProduct, getSingleProduct, inventoryStats, newArrivalsListData, productcollections, updateProduct     } from "./product.controller";
+import { bestSellingProducts, createProduct, deleteProduct, generateAI, getAllProduct, getProductsByCategoryandsubcategory,getSingleEditProduct, getSingleProduct, inventoryStats, newArrivalsListData, productcollections, updateProduct     } from "./product.controller";
 import { createProductZodSchema, updateProductZodSchema } from "./product.validations";
 import { multerUpload } from "../../config/multer.config";
 
@@ -33,6 +33,7 @@ router.patch(
 
 
 router.delete('/delete-product/:id', deleteProduct);
+router.post('/generate-ai',  multerUpload.none(), generateAI);
 // ---------------------------------------- data Manager ------------------------------------------------
 
 router.get('/type/new-arrivals', newArrivalsListData);
